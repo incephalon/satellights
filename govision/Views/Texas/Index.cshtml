@@ -1,0 +1,426 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@*    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/d3.min.js"></script>*@
+
+<script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/three.min.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/CSS3DRenderer.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js'></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="~/app/texas/app.js"></script>
+
+
+
+<style>
+    body
+    {
+        margin:0px;
+        padding:0px;
+        //background:#b3b3b3;
+        background:beige;
+        overflow:hidden;
+    }
+    .number {
+      font-size: 100px;
+      font-family: 'Alegreya SC', serif;
+      width:500px;
+      height:200px;
+      background:blue;
+      color:pink;
+      text-align:center;
+    }
+    #thing
+    {
+	background: white;
+	box-shadow: 0 0 10px black;
+	position: absolute;
+	top: 25px;
+    z-index:20;
+    width:40%;
+    height:96%;
+    margin:0px;
+    padding:0px;
+    //right:25px;
+        -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    overflow-y:scroll;
+    }
+	.out{
+        right:-500px;
+        opacity:0;
+	}
+
+    .in{
+        right:25px;
+        opacity:.95;
+	}
+    #abs{
+		width:600px;
+		height:75px;
+		position:absolute;
+		z-index:19;
+		top:0px;    
+        padding:5px;
+        margin-top:5px;
+	}
+    #sub
+    {
+        height:75px;
+        width:300px;
+		position:absolute;
+        top:50px;
+        z-index:19;
+        opacity:0;
+        //visibility:hidden;
+    }
+		.topMenu
+		{
+            height:30px;
+            width:30px;
+            //margin-top:10px;
+            //float:left;
+            //margin:10px;
+            //box-shadow: 5px 5px 5px #888888;
+		}
+    .bLink
+    {
+        height:25px;
+        color: navy;
+		background: transparent;
+		//outline: 1px solid rgba(127,255,255,0.75);
+        outline: 1px solid navy;
+		border: 0px;
+		padding: 5px 10px;
+        //margin-top:15px;
+		cursor: pointer;
+        text-decoration:none;
+    }
+</style>
+
+
+<body ng-app="txApp">
+    <div  ng-controller="myC">
+        <div id="thing" class="out">
+            <div ng-view=""></div>
+        </div>
+        <div id="abs">
+
+            <a id="overview" class="bLink" href="#">+</a>
+            <a id="constitution" class="bLink" href="#constitution">Constitution</a>
+            <a id="uscode" class="bLink" href="#uscode">U.S. Code</a>
+            <a id="judicial" class="bLink" href="#judicial">Judicial</a>
+            <a id="executive" class="bLink" href="#executive">Executive</a>
+            <a id="congress" class="bLink" href="#congress">Congress</a>
+            <a id="agencies" class="bLink" href="#agencies">Agencies</a>
+        </div>
+
+        <div id="sub">
+             <a id="house" class="bLink" href="#senate">Senate</a>
+            <a id="senate" class="bLink" href="#house">House</a>
+            <a id="bills" class="bLink" href="#bills">Bills</a>
+            <a id="committees" class="bLink" href="#committees">Committees</a>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+<script>
+    
+    var camera, scene, renderer, geometry, material, mesh, rendererCSS, object;
+
+init();
+animate();
+
+  var wHalf=window.innerWidth/2;
+  var hHalf = window.innerHeight/2;
+  
+  var runningX=0;
+  var runningY = 0;
+
+  
+  var w = window.innerWidth;
+  $("#abs").css('left', ((w / 2) - 300));
+  $("#sub").css('left', ((w / 2) - 150));
+
+function init() {
+
+  scene = new THREE.Scene();
+
+  camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
+  camera.id = "cam";
+  camera.position.x = -100;
+  camera.position.y = -300;
+  camera.position.z = 1000;
+  scene.add(camera);
+
+ //window.addEventListener('mousemove', moveIt, 1);
+
+          var number = document.createElement( 'img' );
+          number.src = "../../images/myDCClean.png";
+
+          object = new THREE.CSS3DObject( number );
+          object.position.x=-300;
+          object.position.y=-300;
+          object.position.z=0;
+          
+          scene.add(object);
+          //number.addEventListener('click', clickIt, 1);
+
+
+          var tester = document.createElement('div');
+          tester.id = "tester";
+          object2 = new THREE.CSS3DObject(tester);
+          object2.position.x = 200;
+          object2.position.y = 0;
+          object2.position.z = 10;
+
+          scene.add(object2);
+
+
+
+  
+  renderer = new THREE.CSS3DRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  document.body.appendChild(renderer.domElement);
+
+}
+
+//
+
+
+
+function animate() {
+  requestAnimationFrame(animate);
+  //object.rotation.x += 0.03;
+  render();
+}
+
+function render() {
+  renderer.render(scene, camera);
+}
+
+
+
+$("#overview").click(function () {
+
+    TweenMax.to(camera.position, 1, {
+        x: -100, y: -300, z:1000, onUpdate: function () {
+        }
+    });
+
+    $("#thing").removeClass('in');
+    $("#thing").addClass('out');
+
+    var leftPaneW = (w / 2);
+    $("#abs").animate({
+        left: leftPaneW - 300,
+    }, 1000, function () {
+        // Animation complete.
+    });
+});
+
+var positions = {
+    "executive":{
+        x:-400,
+        y:-200, 
+        z:800
+    },
+    "congress": {
+        x: 400,
+        y: 0,
+        z: 800
+    },
+
+
+    "senate": {
+        x: 400,
+        y: 0,
+        z: 800
+    },
+
+    "house": {
+        x: 400,
+        y: 0,
+        z: 800
+    },
+
+    "bills": {
+        x: 400,
+        y: 0,
+        z: 800
+    },
+
+    "committees": {
+        x: 400,
+        y: 0,
+        z: 800
+    },
+
+
+    "judicial": {
+        x: 600,
+        y: 0,
+        z: 800
+    },
+    "agencies": {
+        x: 0,
+        y: 200,
+        z: 800
+    },
+    "uscode": {
+        x: 0,
+        y: -200,
+        z: 800
+    },
+    "constitution": {
+        x: -200,
+        y: -200,
+        z: 800
+    },
+
+
+};
+
+
+$("#abs > a").not("#overview").click(function (e) {
+
+    var id = this.id;
+    console.log(id);
+
+    TweenMax.to(camera.position, 1, {
+        x: positions[id]["x"], y: positions[id]["y"], z: positions[id]["z"], onUpdate: function () {
+        }
+    });
+    $("#thing").removeClass('out');
+    $("#thing").addClass('in');
+
+    //$("#abs").animate('margin-left', function () {
+
+    //});
+
+    var leftPaneW = .6 * (w / 2);
+    $("#abs").animate({
+        left: leftPaneW-300,
+    }, 1000, function () {
+        // Animation complete.
+    });
+
+
+
+    ////$("#thing").html("");
+    ////loadSVG();
+
+    if (id === "congress") {
+        //$("#sub").css('visibility','visible');
+        $("#sub").animate({
+            left: leftPaneW - 150,
+            opacity:1,
+            //visibility:'visible',
+        }, 1000, function () {
+            // Animation complete.
+        });
+    }
+});
+
+
+function loadSVG() {
+
+    d3.xml('../../images/federal/districtCourts.svg', "image/svg+xml", function (xml) {
+        //var doccer = document.getElementById("map");
+
+        //while (doccer.firstChild) {
+        //    doccer.removeChild(doccer.firstChild);
+        //}
+        var my = document.getElementById('thing');
+
+        my.appendChild(xml.documentElement);
+        //visualize();
+
+        //var h = window.innerHeight - 50;
+        //var w = window.innerWidth - 100;
+
+        //var svg = d3.select("svg")
+        //    //.attr("viewBox", "0 0 600 600")
+        //    .attr("width", w)
+        //    .attr("height", h);
+    });
+}
+
+
+</script>
+
+
+@*//$("#executive").click(function () {
+
+//    TweenMax.to(camera.position, 1, {
+//        x: -400, y: -200, z: 800, onUpdate: function () {
+
+//        }
+//    });
+
+
+//    $("#thing").removeClass('out');
+//    $("#thing").addClass('in');
+//});
+
+//$("#agencies").click(function () {
+
+//    TweenMax.to(camera.position, 1, {
+//        x: -400, y: -200, z: 800, onUpdate: function () {
+
+//        }
+//    });
+
+
+//    $("#thing").removeClass('out');
+//    $("#thing").addClass('in');
+//});*@
+
+@*function moveIt()
+//    {
+
+    
+//    }
+
+//function clickIt()
+//    {   
+//        var mouseX = event.clientX;
+//        var mouseY = event.clientY;
+      
+        
+//        var wh = (mouseX-wHalf);
+//        var hh = (hHalf-mouseY);
+        
+
+        
+//          TweenMax.to(camera.position,1,{x:camera.position.x+wh,y:camera.position.y+hh,onUpdate:function(){
+//                    }});
+                   
+        
+//        renderer.render(scene, camera);
+//    }*@
+
+
+ @*           <div><img class="topMenu" src="../../images/compass.jpg" alt="" /></div>*@
+@*            <button id="overview">+</button>
+            <a id="constitution" class="bLink" href="#constitution">Constitution</a>
+            <button id="uscode"><a href="#uscode">U.S. Code</a></button>
+            <button id="judicial"><a href="#judicial">Judicial</a></button>
+            <button id="executive"><a href="#executive">Executive</a></button>
+            <button id="congress"><a href="#congress">Congress</a></button>
+            <button id="agencies"><a href="#agencies">Agencies</a></button>*@
+      @*      <button>{{hello}}</button>*@

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Back";
+}
+
+
+<style>
+    body
+    {
+        overflow:hidden;
+        overflow-y:hidden;
+        background-image:url('../../images/myDC.png');
+        margin:0px;
+        padding:0px;
+    }
+    #two
+    {
+        width:200px;
+        height:200px;
+        background:green;
+    }
+</style>
+
+@*<body>
+
+    <img src="../../images/myDC.png" alt="" />
+
+
+</body>*@
+
+
+		    <div id="impress">
+  
+                     <div id="overview" class="step" data-x="0" data-y="0" data-z="0" data-scale="1.5"></div>
+
+                    <div id="two" class="step" data-x="300" data-y="0" data-z="0" data-scale="1"></div>
+
+          @*           <img src="../../images/myDC.png" alt="" />*@
+@*                    <img id="executive" />
+                    <img id="judicial"  />
+
+                    <img id="uscode" />
+                    <img id="constitution" />
+                    <img id="house"  />
+                    <img id="senate"  />
+                    <img id="courts"  />*@
+
+
+		    </div>
+
+
+<script type="text/javascript" src="~/impress.js"></script>
+<script type="text/javascript">impress().init();</script>

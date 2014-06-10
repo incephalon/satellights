@@ -1,0 +1,197 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/Dallas.css" rel="stylesheet" />
+<link href="~/Content/federal.css" rel="stylesheet" />
+
+<script src="~/app/app.js"></script>
+
+
+
+		<style>
+		    body
+		    {
+                background:beige;
+		    }
+		#Federal{
+		    width:4000px;
+		    height:2000px;
+		    //background:orange;
+		    //box-shadow: 10px 10px 5px #888888;
+            border:1px solid black;
+		}
+		#Texas{
+		    width:4000px;
+		    height:2000px;
+		    //background:green;
+		  border:1px solid black;
+		}
+		#Dallas{
+		    width:4000px;
+		    height:2000px;
+		    //background:yellow;
+            border:1px solid black;
+		}
+		    .inDallas
+		    {
+                width:100px;
+                height:100px;
+                background:teal;
+		    }
+        #DallasCounty{
+		   width:4000px;
+		    height:2000px;
+		    b//ackground:purple; 
+		  border:1px solid black;
+		}
+		#abs{
+		    width:450px;
+		    height:75px;
+		    position:absolute;
+		    z-index:19;
+		    top:0px;
+		    
+		}
+		img{
+		    height:400px;
+		    width:400px;  
+		}
+		.topMenu
+		{
+            height:65px;
+            width:65px;
+            float:left;
+            margin:10px;
+            box-shadow: 5px 5px 5px #888888;
+		}
+		    #minnesota
+		    {
+                //background:black;
+                width:4000px;
+                height:2000px;
+                border:1px solid black;
+
+		    }	
+		</style>
+
+<div ng-app="myApp">
+    <div ng-controller="myC">
+
+        <div id="abs">
+             <a href="#Minnesota"><img class="topMenu" src="../../images/compass.jpg" alt="" /></a>
+             <a href="#DallasOverview"><img class="topMenu" src="../../images/icon_Dallas.jpg" alt="" /></a>
+             <a href="#DallasCountyOverview"><img class="topMenu" src="../../images/icon_DallasCounty.jpg" alt="" /></a>
+             <a href="#TexasOverview"><img class="topMenu" src="../../images/icon_Texas.png" alt="" /></a>
+             <a href="#FederalOverview"><img class="topMenu" src="../../images/icon_US.jpg" alt="" /></a>
+             <div id="fromAngular">{{hello}}</div>
+        </div>
+
+
+		<div id="impress">
+  
+             <div id="overview" class="step" data-x="0" data-y="0" data-z="0" data-scale="5">		</div>
+
+            <div id="FederalOverview" class="step"  data-scale="2.5"></div> 
+			    <div id="Federal" class="step">
+                     <a href="#/federalgov">Federal</a>
+    			</div>
+
+               <div id="TexasOverview" class="step"  data-scale="2.5"></div>
+
+			    <div id="Texas" class="step" >
+    			</div>
+
+                <div id="DallasOverview" class="step"  data-scale="2.5"></div>
+    			
+			    <div id="Dallas" class="step" >
+                   @* <a href="#/dallasgov">Dallas</a>*@
+    			</div>
+
+            <div id="inDallas" class="inDallas step"></div>
+
+            <div id="inDallas2" class="inDallas step"></div>
+
+            <div id="DallasCountyOverview" class="step"  data-scale="2.5"></div>
+			    <div id="DallasCounty" class="step">
+
+    			</div>
+
+              <div id="Minnesota" class="step"  data-scale="2.5"></div>
+		</div>
+        </div>
+</div>
+
+<script>
+    var w = window.innerWidth;
+    $("#abs").css('left', ((w / 2) - 225));
+
+
+    //$("#Dallas").attr('data-x', -2000);
+    //$("#Dallas").attr('data-y', -2000);
+
+    //$("#DallasCounty").attr('data-x', 0);
+    //$("#DallasCounty").attr('data-y', -2000);
+
+    //$("#Texas").attr('data-x', -2000);
+    //$("#Texas").attr('data-y', 0);
+
+    //$("#Federal").attr('data-x', 0);
+    //$("#Federal").attr('data-y', 0);
+
+    $("#DallasOverview").attr({ 'data-x': -2000, 'data-y': -1000 });
+    $("#DallasCountyOverview").attr({ 'data-x': 2000, 'data-y': -1000 });
+    $("#TexasOverview").attr({ 'data-x': -2000, 'data-y': 1000 });
+    $("#FederalOverview").attr({ 'data-x': 2000, 'data-y': 1000 });
+
+    $("#Minnesota").attr({ 'data-x': 2000, 'data-y': 1000, 'data-rotate-y':90 });
+
+    $("#Dallas").attr('data-x', -2000);
+    $("#Dallas").attr('data-y', -1000);
+
+    $("#inDallas").attr('data-x', -50);
+    $("#inDallas").attr('data-y', -50);
+
+    $("#inDallas2").attr('data-x', -500);
+    $("#inDallas2").attr('data-y', -500);
+
+    $("#DallasCounty").attr('data-x', 2000);
+    $("#DallasCounty").attr('data-y', -1000);
+
+    $("#Texas").attr('data-x', -2000);
+    $("#Texas").attr('data-y', 1000);
+
+    $("#Federal").attr('data-x', 2000);
+    $("#Federal").attr('data-y', 1000);
+
+    console.log($("#fromAngular").html());
+
+</script>
+
+
+<script type="text/javascript" src="impress.js"></script>
+<script type="text/javascript">impress().init();</script>
+
+<script>
+
+    //var currentSlide = $('.active').attr('id');
+    //console.log(currentSlide);
+
+    $(document).ready(function () {
+        $(document).on('impress:stepenter', function (e) {
+            var currentSlide = $(e.target).attr('id');
+            console.log(currentSlide);
+
+            if (currentSlide === 'Dallas') {
+                //$("#Dallas").attr('data-scale', 25);
+                console.log("got to Dallas");
+                //setTimeout(api.next, 2000);
+            } else if (currentSlide === 'slide3') {
+                window.location = 'http://www.google.com/';
+            }
+        });
+    });
+
+
+
+
+</script>

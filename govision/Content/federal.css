@@ -1,0 +1,17 @@
+﻿		/*#Agencies{
+		    width:400px;
+		    height:400px;
+		    background:blue;
+		    box-shadow: 10px 10px 5px #888888;
+		}*/
+        #federalAgencies{
+            height:100px;
+            overflow-y:scroll;
+            width:200px;
+
+        }
+
+        li{
+            list-style:none;
+
+        }

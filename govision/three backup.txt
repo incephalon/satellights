@@ -1,0 +1,366 @@
+﻿@{
+    ViewBag.Title = "three";
+}
+
+<script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/three.min.js"></script>
+<script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/CSS3DRenderer.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js'></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+<style>
+    body
+    {
+        margin:0px;
+        padding:0px;
+        background:#b3b3b3;
+        overflow:hidden;
+    }
+.number {
+  font-size: 100px;
+  font-family: 'Alegreya SC', serif;
+  width:500px;
+  height:200px;
+  background:blue;
+  color:pink;
+  text-align:center;
+}
+    /*#tester
+    {
+        width:250px;
+        height:250px;
+        //background:green;
+        border:1px solid blue;
+    }*/
+
+    		#thing
+		{
+		    background: white;
+		    box-shadow: 0 0 10px black;
+		    position: absolute;
+		    top: 25px;
+            z-index:20;
+            width:40%;
+            height:96%;
+            margin:0px;
+            padding:0px;
+            //right:25px;
+             -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+		}
+		    .out
+		    {
+                right:-500px;
+                opacity:0;
+
+		    }
+
+        .in
+		    {
+                right:25px;
+                opacity:.90;
+		    }
+
+        		#abs{
+		    width:600px;
+		    height:75px;
+		    position:absolute;
+		    z-index:19;
+		    top:0px;
+		    
+		}
+		.topMenu
+		{
+            height:65px;
+            width:65px;
+            float:left;
+            margin:10px;
+            box-shadow: 5px 5px 5px #888888;
+		}
+        			button {
+				//color: rgba(127,255,255,0.75);
+                color: navy;
+				background: transparent;
+				//outline: 1px solid rgba(127,255,255,0.75);
+                outline: 1px solid navy;
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+</style>
+
+
+<body>
+  @*  <button id="b">click me</button>*@
+<!--    <div id="overlay"></div>-->
+               <div id="thing" class="out">
+            </div>
+@*                <div id="abs">
+                    <a id="overviewLink" href="#overview"><img class="topMenu" src="../../images/compass.jpg" alt="" /></a>
+                    <a href="#DallasOverview"><img class="topMenu" src="../../images/icon_Dallas.jpg" alt="" /></a>
+                    <a href="#DallasCountyOverview"><img class="topMenu" src="../../images/icon_DallasCounty.jpg" alt="" /></a>
+                    <a id="TexasLink" href="#TexasOverview"><img class="topMenu" src="../../images/icon_Texas.png" alt="" /></a>
+                    <a id="federalLink" href="#FederalOverview"><img class="topMenu" src="../../images/icon_US.jpg" alt="" /></a>
+            </div>*@
+
+                    <div id="abs">
+                        <button>Constitution</button>
+                        <button>U.S. Code</button>
+                        <button>Judicial</button>
+                        <button>Executive</button>
+                        <button>Congress</button>
+                        <button>Agencies</button>
+                    </div>
+</body>
+
+
+
+
+
+<script>
+    
+    var camera, scene, renderer, geometry, material, mesh, rendererCSS, object;
+
+init();
+animate();
+
+  var wHalf=window.innerWidth/2;
+  var hHalf = window.innerHeight/2;
+  
+  var runningX=0;
+  var runningY=0;
+
+function init() {
+
+  scene = new THREE.Scene();
+
+  camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
+  camera.id="cam";
+  camera.position.z = 1000;
+  scene.add(camera);
+  
+
+  
+  //window.addEventListener('click', clickIt, 1);
+  window.addEventListener('mousemove', moveIt, 1);
+  
+  var myDivs = ["dallas", "dallascounty", "texas", "federal"];
+  
+    
+   
+          var number = document.createElement( 'img' );
+          number.src = "../../images/myDC.png";
+         // number.src = "../../ally.jpg";
+          //number.id=myDivs[i];
+            //number.className = 'number';
+          //number.textContent = "THREE.JS";
+          object = new THREE.CSS3DObject( number );
+          //object.position.x=-4000+(i*4000);
+          object.position.x=-300;
+          object.position.y=-300;
+          object.position.z=0;
+          
+          scene.add(object);
+          number.addEventListener('click', clickIt, 1);
+
+
+          var tester = document.createElement('div');
+          tester.id = "tester";
+          object2 = new THREE.CSS3DObject(tester);
+          object2.position.x = 200;
+          object2.position.y = 0;
+          object2.position.z = 10;
+
+          scene.add(object2);
+
+
+
+  
+  renderer = new THREE.CSS3DRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  document.body.appendChild(renderer.domElement);
+
+}
+
+function moveIt()
+    {
+       //console.log(event.clientX);
+        //console.log(event.clientY);
+    
+    }
+
+function clickIt()
+    {
+    console.log("move it");
+//        var mouseX = ( event.clientX - windowHalfX ) / 2;
+//        var mouseY = ( event.clientY - windowHalfY ) / 2;
+//        var mouseX = event.clientX;
+//        var mouseY = event.clientY;
+        
+        //console.log(mouseX);
+       // console.log(mouseY);
+    
+//        sphere.position.x=mouseX;
+//         sphere.position.y=-mouseY;
+//        camera.position.x=window.innerWidth-mouseX;
+//        camera.position.y=window.innerHeight-mouseY;
+        
+        //var wh = Math.abs(wHalf-mouseX);
+        //var hh = Math.abs(hHalf-mouseY);
+        
+        //var wh = (mouseX-wHalf);
+        
+        
+        //this works
+//        var wh = (wHalf-mouseX);
+//        var hh = (mouseY-hHalf);
+        
+        
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+        
+        var cameraXnow = camera.position.x;
+        var cameraYnow = camera.position.y;
+        
+        
+        
+        var wh = (mouseX-wHalf);
+        var hh = (hHalf-mouseY);
+        
+        runningX+=wh;
+        runningY+=hh;
+        
+        console.log(wh);
+        console.log(hh);
+                
+
+                
+//        camera.position.x=mouseX;
+//        camera.position.y=mouseY;
+        
+        
+          TweenMax.to(camera.position,1,{x:camera.position.x+wh,y:camera.position.y+hh,onUpdate:function(){
+                        //camera.updateProjectionMatrix();
+                        //camera.lookAt(scene.position);
+                    }});
+                    
+                                    
+// $( '#cam' ).animate({
+//    position.x: mouseX,
+//    position.y:mouseY
+//  }, 2000, function() {
+//    // Animation complete.
+//  });
+        
+        
+        renderer.render(scene, camera);
+    
+    
+    }
+
+
+
+function animate() {
+  requestAnimationFrame(animate);
+  //object.rotation.x += 0.03;
+  render();
+}
+
+function render() {
+  renderer.render(scene, camera);
+}
+
+
+
+$("#b").click(function(){
+    //alert("great");
+    //object.position.x=-500;
+//camera.position.z = 3000;
+////camera.position.x = -4000;
+//camera.position.x = 4000;
+
+  TweenMax.to(camera.position,3,{x:300,y:-300,onUpdate:function(){
+                        //camera.updateProjectionMatrix();
+                        //camera.lookAt(scene.position);
+                    }});
+
+
+});
+
+
+$("#tester").click(function(){
+    //camera.position.z = 3000;
+    //camera.position.x = -4000;
+
+    //alert("create");
+
+    //TweenMax.to(camera.position, 3, {
+    //    x: 300, y: -300, onUpdate: function () {
+    //        //camera.updateProjectionMatrix();
+    //        //camera.lookAt(scene.position);
+    //    }
+    //});
+    clickIt();
+
+    $("#thing").removeClass('out');
+    $("#thing").addClass('in');
+});
+
+
+
+$("#overviewLink").click(function () {
+    //camera.position.z = 3000;
+    //camera.position.x = -4000;
+
+    //alert("create");
+
+    TweenMax.to(camera.position, 1, {
+        x: 0, y: 0, z:1000, onUpdate: function () {
+            //camera.updateProjectionMatrix();
+            //camera.lookAt(scene.position);
+        }
+    });
+    //clickIt();
+
+    $("#thing").removeClass('in');
+    $("#thing").addClass('out');
+});
+
+
+$("#federalLink").click(function () {
+    //camera.position.z = 3000;
+    //camera.position.x = -4000;
+
+    //alert("create");
+
+    TweenMax.to(camera.position, 1, {
+        x: 400, y: 0, z: 800, onUpdate: function () {
+            //camera.updateProjectionMatrix();
+            //camera.lookAt(scene.position);
+        }
+    });
+    //clickIt();
+
+    $("#thing").removeClass('out');
+    $("#thing").addClass('in');
+});
+
+$("#TexasLink").click(function () {
+
+    TweenMax.to(camera.position, 1, {
+        x: -400, y: -200, z: 800, onUpdate: function () {
+
+        }
+    });
+
+
+    $("#thing").removeClass('out');
+    $("#thing").addClass('in');
+});
+
+
+</script>

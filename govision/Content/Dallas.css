@@ -1,0 +1,24 @@
+﻿		#CityCouncil{
+		    width:400px;
+		    height:400px;
+		    background:blue;
+		    box-shadow: 10px 10px 5px #888888;
+		}
+		#Mayor{
+		    width:400px;
+		    height:400px;
+		    background:green;
+		  
+		}
+		#CityManager{
+		    width:400px;
+		    height:400px;
+		    background:yellow;
+		    //border-radius:80px;
+		  
+		}
+        #DallasAgencies{
+		   width:400px;
+		    height:400px;
+		    background:purple; 
+		}
