@@ -29,3 +29,34 @@ D:\Dropbox\Visual Studio 2010\Projects\govision\govision\bin\System.Web.WebPages
 D:\Dropbox\Visual Studio 2010\Projects\govision\govision\obj\Debug\govision.csprojResolveAssemblyReference.cache
 D:\Dropbox\Visual Studio 2010\Projects\govision\govision\obj\Debug\govision.dll
 D:\Dropbox\Visual Studio 2010\Projects\govision\govision\obj\Debug\govision.pdb
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\govision.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\govision.pdb
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\Antlr3.Runtime.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\EntityFramework.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\Newtonsoft.Json.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Net.Http.Formatting.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Http.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Http.WebHost.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Mvc.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Optimization.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Providers.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Razor.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.Deployment.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.Razor.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\WebGrease.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\EntityFramework.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\Newtonsoft.Json.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Net.Http.Formatting.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Http.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Http.WebHost.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Mvc.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.Razor.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.Deployment.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.Razor.xml
+C:\Users\kunal\Documents\GitHub\satellights\govision\obj\Debug\govision.csprojResolveAssemblyReference.cache
+C:\Users\kunal\Documents\GitHub\satellights\govision\obj\Debug\govision.dll
+C:\Users\kunal\Documents\GitHub\satellights\govision\obj\Debug\govision.pdb

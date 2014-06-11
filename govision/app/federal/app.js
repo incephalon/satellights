@@ -4,47 +4,58 @@
 		.when('/',
 		{
 		    templateUrl: 'uscode.html',
-            controller:"myC"
+		    controller: "myC",
+		    animation: 'slide'
 		})
 		.when('/agencies', {
 		    templateUrl: 'agencies.html',
-            controller:'agencies'
+		    controller: 'agencies',
+		    animation: 'slide'
 		})
         .when('/constitution', {
             templateUrl: 'constitution.html',
-            controller:'constitution'
+            controller: 'constitution',
+            animation: 'slide'
         })
         .when('/uscode', {
             templateUrl: 'uscode.html',
-            controller: "uscode"
+            controller: "uscode",
+            animation: 'slide'
         })
         .when('/congress', {
             templateUrl: 'congress.html',
-            controller:'congress'
+            controller: 'congress',
+            animation: 'slide'
         })
         .when('/executive', {
             templateUrl: 'executive.html',
-            controller: 'executive'
+            controller: 'executive',
+            animation: 'slide'
         })
         .when('/judicial', {
             templateUrl: 'judicial.html',
-            controller: 'judicial'
+            controller: 'judicial',
+            animation: 'slide'
         })
         .when('/senate', {
             templateUrl: 'senate.html',
-            controller: 'senate'
+            controller: 'senate',
+            animation: 'slide'
         })
         .when('/house', {
             templateUrl: 'house.html',
-            controller: 'house'
+            controller: 'house',
+            animation: 'slide'
         })
         .when('/bills', {
             templateUrl: 'bills.html',
-            controller: 'bills'
+            controller: 'bills',
+            animation: 'slide'
         })
         .when('/committees', {
             templateUrl: 'committees.html',
-            controller: 'committees'
+            controller: 'committees',
+            animation: 'slide'
         })
         .otherwise({
             redirectTo: '/'

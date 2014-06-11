@@ -13,79 +13,153 @@
 
 
 <style>
-    body
-    {
-        margin:0px;
-        padding:0px;
+    body {
+        margin: 0px;
+        padding: 0px;
         //background:#b3b3b3;
-        background:beige;
-        overflow:hidden;
+        background: beige;
+        overflow: hidden;
     }
-    .number {
-      font-size: 100px;
-      font-family: 'Alegreya SC', serif;
-      width:500px;
-      height:200px;
-      background:blue;
-      color:pink;
-      text-align:center;
-    }
-    #thing
-    {
-	background: white;
-	box-shadow: 0 0 10px black;
-	position: absolute;
-	top: 25px;
-    z-index:20;
-    width:40%;
-    height:96%;
-    margin:0px;
-    padding:0px;
-    //right:25px;
-        -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    overflow-y:scroll;
-    }
-	.out{
-        right:-500px;
-        opacity:0;
-	}
 
-    .in{
-        right:25px;
-        opacity:.95;
-	}
-    #abs{
-		width:600px;
-		height:75px;
-		position:absolute;
-		z-index:19;
-		top:0px;    
-        padding:5px;
-        margin-top:5px;
-	}
-    #sub
-    {
-        height:75px;
-        width:300px;
-		position:absolute;
-        top:50px;
-        z-index:19;
-        opacity:0;
+    .number {
+        font-size: 100px;
+        font-family: 'Alegreya SC', serif;
+        width: 500px;
+        height: 200px;
+        background: blue;
+        color: pink;
+        text-align: center;
+    }
+
+    #thing {
+        background: #f0f0f0;
+        box-shadow: 0 0 10px black;
+        position: absolute;
+        top: 25px;
+        z-index: 20;
+        width: 40%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        right: 0px;
+        top:0px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        overflow: auto;
+        overflow-y:hidden;
+        scrollbar-face-color: ThreeDFace !important;
+        scrollbar-shadow-color: ThreeDDarkShadow !important;
+        scrollbar-highlight-color: ThreeDHighlight !important;
+        scrollbar-3dlight-color: ThreeDLightShadow !important;
+        scrollbar-darkshadow-color: ThreeDDarkShadow !important;
+        scrollbar-track-color: Scrollbar !important;
+        scrollbar-arrow-color: ButtonText !important;
+    }
+
+    .out {
+        right: -500px;
+        opacity: 0;
+    }
+
+    .in {
+        right: 25px;
+        opacity: .95;
+    }
+
+    #abs {
+        width: 600px;
+        height: 75px;
+        position: absolute;
+        z-index: 19;
+        top: 0px;
+        padding: 5px;
+        margin-top: 5px;
+    }
+
+    #thing .title {
+    width:auto;
+        min-width:400px;
+        content: attr(title);
+        padding: 4px 8px;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+        left: 0;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 20px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        -moz-box-shadow: 0px 0px 4px #222;
+        -webkit-box-shadow: 0px 0px 4px #222;
+        box-shadow: 0px 0px 4px #222;
+        background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+        background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+        background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+        background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+        background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+        background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+    }
+
+    #thing .article {
+        margin-top: -10px;
+        width:auto;
+        min-width:400px;
+        font: 13px/22px Helvetica, Arial, sans-serif;
+        background: #f0f0f0;
+    }
+
+    ul {
+        margin-left: 15px;
+        background: #f0f0f0;
+        list-style: none;
+    }
+
+    #thing::-webkit-scrollbar-track {
+        background-color: #b46868;
+    }
+    /* the new scrollbar will have a flat appearance with the set background color */
+
+    #thing::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    /* this will style the thumb, ignoring the track */
+
+    #thing::-webkit-scrollbar-button {
+        background-color: #7c2929;
+    }
+    /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+
+    #thing::-webkit-scrollbar-corner {
+        background-color: black;
+    }
+    /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+
+
+
+
+    #sub {
+        height: 75px;
+        width: 300px;
+        position: absolute;
+        top: 50px;
+        z-index: 19;
+        opacity: 0;
         //visibility:hidden;
     }
-		.topMenu
-		{
-            height:30px;
-            width:30px;
-            //margin-top:10px;
-            //float:left;
-            //margin:10px;
-            //box-shadow: 5px 5px 5px #888888;
-		}
-        /*button {
+
+    .topMenu {
+        height: 30px;
+        width: 30px;
+        margin-top:10px;
+        float:left;
+        margin:10px;
+        box-shadow: 5px 5px 5px #888888;
+    }
+    /*button {
 				//color: rgba(127,255,255,0.75);
                 color: navy;
 				background: transparent;
@@ -100,26 +174,27 @@
                 text-decoration:none;
                 color:navy;
             }*/
-    .bLink
-    {
-        height:25px;
+
+    .bLink {
+        height: 25px;
         color: navy;
-		background: transparent;
-		//outline: 1px solid rgba(127,255,255,0.75);
+        background: transparent;
+        outline: 1px solid rgba(127,255,255,0.75);
         outline: 1px solid navy;
-		border: 0px;
-		padding: 5px 10px;
-        //margin-top:15px;
-		cursor: pointer;
-        text-decoration:none;
+        border: 0px;
+        padding: 5px 10px;
+        margin-top:15px;
+        cursor: pointer;
+        text-decoration: none;
     }
 </style>
 
 
 <body ng-app="fedApp">
-    <div  ng-controller="myC">
+    <div ng-controller="myC">
         <div id="thing" class="out">
-            <div ng-view=""></div>
+         @*   <div ng-view="" ng-animate="{enter: 'enter', leave: 'leave'}"></div>*@
+            <ng-view ng-animate="$route.current.animation"></ng-view>
         </div>
         <div id="abs">
 
@@ -133,7 +208,7 @@
         </div>
 
         <div id="sub">
-             <a id="house" class="bLink" href="#senate">Senate</a>
+            <a id="house" class="bLink" href="#senate">Senate</a>
             <a id="senate" class="bLink" href="#house">House</a>
             <a id="bills" class="bLink" href="#bills">Bills</a>
             <a id="committees" class="bLink" href="#committees">Committees</a>
@@ -146,227 +221,227 @@
 
 
 <script>
-    
+
     var camera, scene, renderer, geometry, material, mesh, rendererCSS, object;
 
-init();
-animate();
+    init();
+    animate();
 
-  var wHalf=window.innerWidth/2;
-  var hHalf = window.innerHeight/2;
-  
-  var runningX=0;
-  var runningY = 0;
+    var wHalf = window.innerWidth / 2;
+    var hHalf = window.innerHeight / 2;
 
-  
-  var w = window.innerWidth;
-  $("#abs").css('left', ((w / 2) - 300));
-  $("#sub").css('left', ((w / 2) - 150));
-
-function init() {
-
-  scene = new THREE.Scene();
-
-  camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-  camera.id = "cam";
-  camera.position.x = -100;
-  camera.position.y = -300;
-  camera.position.z = 1000;
-  scene.add(camera);
-
- //window.addEventListener('mousemove', moveIt, 1);
-
-          var number = document.createElement( 'img' );
-          number.src = "../../images/myDCClean.png";
-
-          object = new THREE.CSS3DObject( number );
-          object.position.x=-300;
-          object.position.y=-300;
-          object.position.z=0;
-          
-          scene.add(object);
-          //number.addEventListener('click', clickIt, 1);
+    var runningX = 0;
+    var runningY = 0;
 
 
-          var tester = document.createElement('div');
-          tester.id = "tester";
-          object2 = new THREE.CSS3DObject(tester);
-          object2.position.x = 200;
-          object2.position.y = 0;
-          object2.position.z = 10;
+    var w = window.innerWidth;
+    $("#abs").css('left', ((w / 2) - 300));
+    $("#sub").css('left', ((w / 2) - 150));
 
-          scene.add(object2);
+    function init() {
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.id = "cam";
+        camera.position.x = -100;
+        camera.position.y = -300;
+        camera.position.z = 1000;
+        scene.add(camera);
+
+        //window.addEventListener('mousemove', moveIt, 1);
+
+        var number = document.createElement('img');
+        number.src = "../../images/myDCClean.png";
+
+        object = new THREE.CSS3DObject(number);
+        object.position.x = -300;
+        object.position.y = -300;
+        object.position.z = 0;
+
+        scene.add(object);
+        //number.addEventListener('click', clickIt, 1);
 
 
+        var tester = document.createElement('div');
+        tester.id = "tester";
+        object2 = new THREE.CSS3DObject(tester);
+        object2.position.x = 200;
+        object2.position.y = 0;
+        object2.position.z = 10;
 
-  
-  renderer = new THREE.CSS3DRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-  document.body.appendChild(renderer.domElement);
-
-}
-
-//
+        scene.add(object2);
 
 
 
-function animate() {
-  requestAnimationFrame(animate);
-  //object.rotation.x += 0.03;
-  render();
-}
 
-function render() {
-  renderer.render(scene, camera);
-}
+        renderer = new THREE.CSS3DRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
+        document.body.appendChild(renderer.domElement);
 
+    }
 
-$("#overview").click(function () {
-
-    TweenMax.to(camera.position, 1, {
-        x: -100, y: -300, z:1000, onUpdate: function () {
-        }
-    });
-
-    $("#thing").removeClass('in');
-    $("#thing").addClass('out');
-
-    var leftPaneW = (w / 2);
-    $("#abs").animate({
-        left: leftPaneW - 300,
-    }, 1000, function () {
-        // Animation complete.
-    });
-});
-
-var positions = {
-    "executive":{
-        x:-400,
-        y:-200, 
-        z:800
-    },
-    "congress": {
-        x: 400,
-        y: 0,
-        z: 800
-    },
-
-
-    "senate": {
-        x: 400,
-        y: 0,
-        z: 800
-    },
-
-    "house": {
-        x: 400,
-        y: 0,
-        z: 800
-    },
-
-    "bills": {
-        x: 400,
-        y: 0,
-        z: 800
-    },
-
-    "committees": {
-        x: 400,
-        y: 0,
-        z: 800
-    },
-
-
-    "judicial": {
-        x: 600,
-        y: 0,
-        z: 800
-    },
-    "agencies": {
-        x: 0,
-        y: 200,
-        z: 800
-    },
-    "uscode": {
-        x: 0,
-        y: -200,
-        z: 800
-    },
-    "constitution": {
-        x: -200,
-        y: -200,
-        z: 800
-    },
-
-
-};
-
-
-$("#abs > a").not("#overview").click(function (e) {
-
-    var id = this.id;
-    console.log(id);
-
-    TweenMax.to(camera.position, 1, {
-        x: positions[id]["x"], y: positions[id]["y"], z: positions[id]["z"], onUpdate: function () {
-        }
-    });
-    $("#thing").removeClass('out');
-    $("#thing").addClass('in');
-
-    //$("#abs").animate('margin-left', function () {
-
-    //});
-
-    var leftPaneW = .6 * (w / 2);
-    $("#abs").animate({
-        left: leftPaneW-300,
-    }, 1000, function () {
-        // Animation complete.
-    });
+    //
 
 
 
-    ////$("#thing").html("");
-    ////loadSVG();
+    function animate() {
+        requestAnimationFrame(animate);
+        //object.rotation.x += 0.03;
+        render();
+    }
 
-    if (id === "congress") {
-        //$("#sub").css('visibility','visible');
-        $("#sub").animate({
-            left: leftPaneW - 150,
-            opacity:1,
-            //visibility:'visible',
+    function render() {
+        renderer.render(scene, camera);
+    }
+
+
+
+    $("#overview").click(function () {
+
+        TweenMax.to(camera.position, 1, {
+            x: -100, y: -300, z: 1000, onUpdate: function () {
+            }
+        });
+
+        $("#thing").removeClass('in');
+        $("#thing").addClass('out');
+
+        var leftPaneW = (w / 2);
+        $("#abs").animate({
+            left: leftPaneW - 300,
         }, 1000, function () {
             // Animation complete.
         });
-    }
-});
-
-
-function loadSVG() {
-
-    d3.xml('../../images/federal/districtCourts.svg', "image/svg+xml", function (xml) {
-        //var doccer = document.getElementById("map");
-
-        //while (doccer.firstChild) {
-        //    doccer.removeChild(doccer.firstChild);
-        //}
-        var my = document.getElementById('thing');
-
-        my.appendChild(xml.documentElement);
-        //visualize();
-
-        //var h = window.innerHeight - 50;
-        //var w = window.innerWidth - 100;
-
-        //var svg = d3.select("svg")
-        //    //.attr("viewBox", "0 0 600 600")
-        //    .attr("width", w)
-        //    .attr("height", h);
     });
-}
+
+    var positions = {
+        "executive": {
+            x: -400,
+            y: -200,
+            z: 800
+        },
+        "congress": {
+            x: 400,
+            y: 0,
+            z: 800
+        },
+
+
+        "senate": {
+            x: 400,
+            y: 0,
+            z: 800
+        },
+
+        "house": {
+            x: 400,
+            y: 0,
+            z: 800
+        },
+
+        "bills": {
+            x: 400,
+            y: 0,
+            z: 800
+        },
+
+        "committees": {
+            x: 400,
+            y: 0,
+            z: 800
+        },
+
+
+        "judicial": {
+            x: 600,
+            y: 0,
+            z: 800
+        },
+        "agencies": {
+            x: 0,
+            y: 200,
+            z: 800
+        },
+        "uscode": {
+            x: 0,
+            y: -200,
+            z: 800
+        },
+        "constitution": {
+            x: -200,
+            y: -200,
+            z: 800
+        },
+
+
+    };
+
+
+    $("#abs > a").not("#overview").click(function (e) {
+
+        var id = this.id;
+        console.log(id);
+
+        TweenMax.to(camera.position, 1, {
+            x: positions[id]["x"], y: positions[id]["y"], z: positions[id]["z"], onUpdate: function () {
+            }
+        });
+        $("#thing").removeClass('out');
+        $("#thing").addClass('in');
+
+        //$("#abs").animate('margin-left', function () {
+
+        //});
+
+        var leftPaneW = .6 * (w / 2);
+        $("#abs").animate({
+            left: leftPaneW - 300,
+        }, 1000, function () {
+            // Animation complete.
+        });
+
+
+
+        ////$("#thing").html("");
+        ////loadSVG();
+
+        if (id === "congress") {
+            //$("#sub").css('visibility','visible');
+            $("#sub").animate({
+                left: leftPaneW - 150,
+                opacity: 1,
+                //visibility:'visible',
+            }, 1000, function () {
+                // Animation complete.
+            });
+        }
+    });
+
+
+    function loadSVG() {
+
+        d3.xml('../../images/federal/districtCourts.svg', "image/svg+xml", function (xml) {
+            //var doccer = document.getElementById("map");
+
+            //while (doccer.firstChild) {
+            //    doccer.removeChild(doccer.firstChild);
+            //}
+            var my = document.getElementById('thing');
+
+            my.appendChild(xml.documentElement);
+            //visualize();
+
+            //var h = window.innerHeight - 50;
+            //var w = window.innerWidth - 100;
+
+            //var svg = d3.select("svg")
+            //    //.attr("viewBox", "0 0 600 600")
+            //    .attr("width", w)
+            //    .attr("height", h);
+        });
+    }
 
 
 </script>
@@ -423,7 +498,7 @@ function loadSVG() {
 //    }*@
 
 
- @*           <div><img class="topMenu" src="../../images/compass.jpg" alt="" /></div>*@
+@*           <div><img class="topMenu" src="../../images/compass.jpg" alt="" /></div>*@
 @*            <button id="overview">+</button>
             <a id="constitution" class="bLink" href="#constitution">Constitution</a>
             <button id="uscode"><a href="#uscode">U.S. Code</a></button>
@@ -431,4 +506,4 @@ function loadSVG() {
             <button id="executive"><a href="#executive">Executive</a></button>
             <button id="congress"><a href="#congress">Congress</a></button>
             <button id="agencies"><a href="#agencies">Agencies</a></button>*@
-      @*      <button>{{hello}}</button>*@
+@*      <button>{{hello}}</button>*@
