@@ -1,10 +1,13 @@
 ﻿<link href="../Content/federal/agencies.css" rel="stylesheet" />
 
-<div class="title">agencies!!</div>
+ 
 
 <!--<div ng-repeat="i in departments">{{i.name}}</div>-->
 <div class="article">
+     <div class="title"><span>agencies!!</span></div>
 <ul>
-    <li ng-repeat="i in departments">{{i.name}}</li>
+    <li ng-repeat="i in departments"  ><!-- <svg id="mySvg" width="80" height="80"> <image x="20" y="20" width="40px" height="40px"
+         xlink:href="{{i.logourl}}" /></svg>-->
+         <img src="{{i.logourl}}" alt="" width="40"  height="40"/> <label style="padding-bottom:-15px;">{{i.name}}  </label> </li>
 </ul>
     </div>

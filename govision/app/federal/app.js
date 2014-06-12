@@ -75,57 +75,57 @@ app.controller('constitution', function ($scope) {
 app.controller('uscode', function ($scope) {
     $scope.titles = [
 { name: " GENERAL PROVISIONS", title:1 },
-{ name: " THE CONGRESS", title: 1 },
-{ name: " THE PRESIDENT", title: 1 },
-{ name: " FLAG AND SEAL, SEAT OF GOVERNMENT, AND THE STATES", title: 1 },
-{ name: " GOVERNMENT ORGANIZATION AND EMPLOYEES", title:1 },
+{ name: " THE CONGRESS", title: 2 },
+{ name: " THE PRESIDENT", title: 3 },
+{ name: " FLAG AND SEAL, SEAT OF GOVERNMENT, AND THE STATES", title: 4 },
+{ name: " GOVERNMENT ORGANIZATION AND EMPLOYEES", title:5 },
 { name: " APPENDIX", title:1 },
-{ name: " DOMESTIC SECURITY", title: 1 },
+{ name: " DOMESTIC SECURITY", title: 6 },
 { name: " AGRICULTURE", title: 1 },
-{ name: " ALIENS AND NATIONALITY", title: 1 },
-{ name: " ARBITRATION", title: 1 },
-{ name: " ARMED FORCES", title: 1 },
-{ name: " BANKRUPTCY", title: 11 },
-{ name: " BANKS AND BANKING", title: 1 },
-{ name: " CENSUS", title: 1 },
-{ name: " COAST GUARD", title: 1 },
-{ name: " COMMERCE AND TRADE", title: 1 },
-{ name: " CONSERVATION", title: 1 },
-{ name: " COPYRIGHTS", title: 1 },
-{ name: " CRIMES AND CRIMINAL PROCEDURE", title: 1 },
-{ name: " APPENDIX", title: 1 },
-{ name: " CUSTOMS DUTIES", title: 1 },
-{ name: " EDUCATION", title: 1 },
-{ name: " FOOD AND DRUGS", title: 1 },
-{ name: " FOREIGN RELATIONS AND INTERCOURSE", title: 1 },
-{ name: " HIGHWAYS", title: 1 },
-{ name: " HOSPITALS AND ASYLUMS", title: 1 },
-{ name: " INDIANS", title: 1 },
-{ name: " INTERNAL REVENUE CODE", title: 1 },
-{ name: " INTOXICATING LIQUORS", title: 1 },
-{ name: " JUDICIARY AND JUDICIAL PROCEDURE", title: 1 },
-{ name: " LABOR", title: 1 },
-{ name: " MINERAL LANDS AND MINING", title: 1 },
-{ name: " MONEY AND FINANCE", title: 1 },
-{ name: " NATIONAL GUARD", title: 1 },
-{ name: " NAVIGATION AND NAVIGABLE WATERS", title: 1 },
-{ name: " PATENTS", title: 1 },
-{ name: " PATRIOTIC AND NATIONAL OBSERVANCES, CEREMONIES, ANDORGANIZATIONS", title: 1 },
-{ name: " PAY AND ALLOWANCES OF THE UNIFORMED SERVICES", title: 1 },
-{ name: " VETERANS BENEFITS", title: 1 },
+{ name: " ALIENS AND NATIONALITY", title: 7 },
+{ name: " ARBITRATION", title: 8 },
+{ name: " ARMED FORCES", title: 9 },
+{ name: " BANKRUPTCY", title: 10 },
+{ name: " BANKS AND BANKING", title: 11 },
+{ name: " CENSUS", title: 12 },
+{ name: " COAST GUARD", title: 13 },
+{ name: " COMMERCE AND TRADE", title: 14 },
+{ name: " CONSERVATION", title: 15 },
+{ name: " COPYRIGHTS", title: 16 },
+{ name: " CRIMES AND CRIMINAL PROCEDURE", title: 17 },
+{ name: " APPENDIX", title: 18 },
+{ name: " CUSTOMS DUTIES", title: 19 },
+{ name: " EDUCATION", title: 20 },
+{ name: " FOOD AND DRUGS", title: 21 },
+{ name: " FOREIGN RELATIONS AND INTERCOURSE", title: 22 },
+{ name: " HIGHWAYS", title: 23 },
+{ name: " HOSPITALS AND ASYLUMS", title: 24 },
+{ name: " INDIANS", title: 25 },
+{ name: " INTERNAL REVENUE CODE", title: 26 },
+{ name: " INTOXICATING LIQUORS", title: 27 },
+{ name: " JUDICIARY AND JUDICIAL PROCEDURE", title: 27 },
+{ name: " LABOR", title: 28 },
+{ name: " MINERAL LANDS AND MINING", title: 29 },
+{ name: " MONEY AND FINANCE", title: 30 },
+{ name: " NATIONAL GUARD", title: 31 },
+{ name: " NAVIGATION AND NAVIGABLE WATERS", title: 32 },
+{ name: " PATENTS", title: 33 },
+{ name: " PATRIOTIC AND NATIONAL OBSERVANCES, CEREMONIES, ANDORGANIZATIONS", title: 34 },
+{ name: " PAY AND ALLOWANCES OF THE UNIFORMED SERVICES", title: 35 },
+{ name: " VETERANS BENEFITS", title: 36 },
 { name: " POSTAL SERVICE", title: 1 },
-{ name: " PUBLIC BUILDINGS, PROPERTY, AND WORKS", title: 1 },
-{ name: " PUBLIC CONTRACTS", title: 1 },
-{ name: " THE PUBLIC HEALTH AND WELFARE", title: 1 },
-{ name: " PUBLIC LANDS", title: 1 },
-{ name: " PUBLIC PRINTING AND DOCUMENTS", title: 1 },
-{ name: " RAILROADS", title: 1 },
-{ name: " SHIPPING", title: 1 },
-{ name: " TELEGRAPHS, TELEPHONES, AND RADIOTELEGRAPHS", title: 1 },
-{ name: " TERRITORIES AND INSULAR POSSESSIONS", title: 1 },
-{ name: " TRANSPORTATION", title: 1 },
-{ name: " WAR AND NATIONAL DEFENSE", title: 1 },
-{ name: " NATIONAL AND COMMERCIAL SPACE PROGRAMS", title: 1 },
+{ name: " PUBLIC BUILDINGS, PROPERTY, AND WORKS", title: 37 },
+{ name: " PUBLIC CONTRACTS", title: 38 },
+{ name: " THE PUBLIC HEALTH AND WELFARE", title: 39 },
+{ name: " PUBLIC LANDS", title: 40 },
+{ name: " PUBLIC PRINTING AND DOCUMENTS", title: 41 },
+{ name: " RAILROADS", title: 42 },
+{ name: " SHIPPING", title: 43 },
+{ name: " TELEGRAPHS, TELEPHONES, AND RADIOTELEGRAPHS", title: 45 },
+{ name: " TERRITORIES AND INSULAR POSSESSIONS", title: 46 },
+{ name: " TRANSPORTATION", title: 47 },
+{ name: " WAR AND NATIONAL DEFENSE", title: 48 },
+{ name: " NATIONAL AND COMMERCIAL SPACE PROGRAMS", title: 49 },
 
 
 
@@ -241,43 +241,43 @@ app.controller('agencies', function ($scope) {
 
     $scope.departments = [
         {
-            name:"Agriculture"
+            name: "Agriculture", logourl: "../../images/federal/Agencies/75px-US-DeptOfAgriculture-Seal2.svg.png"
         },
         {
-            name: "Defense"
+            name: "Defense", logourl: "../../images/federal/Agencies/75px-United_States_Department_of_Defense_Seal.svg.png"
         },
         {
-            name: "State"
+            name: "State", logourl: "../../images/federal/Agencies/75px-Department_of_state.svg.png"
         },
         {
-            name: "Education"
+            name: "Education", logourl: "../../images/federal/Agencies/75px-US-DeptOfEducation-Seal.svg.png"
         },
         {
-            name: "Homeland Security"
+            name: "Homeland Security", logourl: "../../images/federal/Agencies/75px-US_Department_of_Homeland_Security_Seal.svg.png"
         },
         {
-            name: "Treasury"
+            name: "Treasury", logourl: "../../images/federal/Agencies/75px-US-DeptOfTheTreasury-Seal.svg.png"
         },
         {
-            name: "Interior"
+            name: "Interior", logourl: "../../images/federal/Agencies/75px-US-DeptOfTheInterior-Seal.svg.png"
         },
         {
-            name: "Labor"
+            name: "Labor", logourl: "../../images/federal/Agencies/75px-US-DeptOfLabor-Seal.svg.png"
         },
         {
-            name: "Health and Human Services"
+            name: "Health and Human Services", logourl: "../../images/federal/Agencies/75px-US-DeptOfHHS-Seal.svg.png"
         },
         {
-            name: "Housing and Urban Development"
+            name: "Housing and Urban Development", logourl: "../../images/federal/Agencies/70px-US-DeptOfHUD-Seal.svg.png"
         },
         {
-            name: "Transportation"
+            name: "Transportation", logourl: "../../images/federal/Agencies/73px-US-DeptOfTransportation-Seal.svg.png"
         },
         {
-            name: "Energy"
+            name: "Energy", logourl: "../../images/federal/Agencies/US-DeptOfEnergy-Seal.svg.png"
         },
         {
-            name: "Veterans Affairs"
+            name: "Veterans Affairs", logourl: "../../images/federal/Agencies/75px-US-DeptOfVeteransAffairs-Seal.svg.png"
         }
     ];
 
