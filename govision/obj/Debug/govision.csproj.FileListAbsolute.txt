@@ -59,4 +59,3 @@ C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.Dep
 C:\Users\kunal\Documents\GitHub\satellights\govision\bin\System.Web.WebPages.Razor.xml
 C:\Users\kunal\Documents\GitHub\satellights\govision\obj\Debug\govision.dll
 C:\Users\kunal\Documents\GitHub\satellights\govision\obj\Debug\govision.pdb
-C:\Users\kunal\Documents\GitHub\satellights\govision\obj\Debug\govision.csprojResolveAssemblyReference.cache

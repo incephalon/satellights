@@ -74,26 +74,26 @@ app.controller('constitution', function ($scope) {
 
 app.controller('uscode', function ($scope) {
     $scope.titles = [
-{ name: " GENERAL PROVISIONS", title:1 },
+{ name: " GENERAL PROVISIONS", title: 1 },
 { name: " THE CONGRESS", title: 2 },
 { name: " THE PRESIDENT", title: 3 },
 { name: " FLAG AND SEAL, SEAT OF GOVERNMENT, AND THE STATES", title: 4 },
-{ name: " GOVERNMENT ORGANIZATION AND EMPLOYEES", title:5 },
-{ name: " APPENDIX", title:1 },
+{ name: " GOVERNMENT ORGANIZATION AND EMPLOYEES", title: 5 },
+{ name: " APPENDIX", title: '5a/usc_sup_05_5' },
 { name: " DOMESTIC SECURITY", title: 6 },
-{ name: " AGRICULTURE", title: 1 },
-{ name: " ALIENS AND NATIONALITY", title: 7 },
-{ name: " ARBITRATION", title: 8 },
-{ name: " ARMED FORCES", title: 9 },
-{ name: " BANKRUPTCY", title: 10 },
-{ name: " BANKS AND BANKING", title: 11 },
-{ name: " CENSUS", title: 12 },
-{ name: " COAST GUARD", title: 13 },
-{ name: " COMMERCE AND TRADE", title: 14 },
-{ name: " CONSERVATION", title: 15 },
-{ name: " COPYRIGHTS", title: 16 },
-{ name: " CRIMES AND CRIMINAL PROCEDURE", title: 17 },
-{ name: " APPENDIX", title: 18 },
+{ name: " AGRICULTURE", title: 7 },
+{ name: " ALIENS AND NATIONALITY", title: 8 },
+{ name: " ARBITRATION", title: 9 },
+{ name: " ARMED FORCES", title: 10 },
+{ name: " BANKRUPTCY", title: 11 },
+{ name: " BANKS AND BANKING", title: 12 },
+{ name: " CENSUS", title: 13 },
+{ name: " COAST GUARD", title: 14 },
+{ name: " COMMERCE AND TRADE", title: 15 },
+{ name: " CONSERVATION", title: 16 },
+{ name: " COPYRIGHTS", title: 17 },
+{ name: " CRIMES AND CRIMINAL PROCEDURE", title: 18 },
+{ name: " APPENDIX", title: '18a' },
 { name: " CUSTOMS DUTIES", title: 19 },
 { name: " EDUCATION", title: 20 },
 { name: " FOOD AND DRUGS", title: 21 },
@@ -103,29 +103,29 @@ app.controller('uscode', function ($scope) {
 { name: " INDIANS", title: 25 },
 { name: " INTERNAL REVENUE CODE", title: 26 },
 { name: " INTOXICATING LIQUORS", title: 27 },
-{ name: " JUDICIARY AND JUDICIAL PROCEDURE", title: 27 },
-{ name: " LABOR", title: 28 },
-{ name: " MINERAL LANDS AND MINING", title: 29 },
-{ name: " MONEY AND FINANCE", title: 30 },
-{ name: " NATIONAL GUARD", title: 31 },
-{ name: " NAVIGATION AND NAVIGABLE WATERS", title: 32 },
-{ name: " PATENTS", title: 33 },
-{ name: " PATRIOTIC AND NATIONAL OBSERVANCES, CEREMONIES, ANDORGANIZATIONS", title: 34 },
-{ name: " PAY AND ALLOWANCES OF THE UNIFORMED SERVICES", title: 35 },
-{ name: " VETERANS BENEFITS", title: 36 },
-{ name: " POSTAL SERVICE", title: 1 },
-{ name: " PUBLIC BUILDINGS, PROPERTY, AND WORKS", title: 37 },
-{ name: " PUBLIC CONTRACTS", title: 38 },
-{ name: " THE PUBLIC HEALTH AND WELFARE", title: 39 },
-{ name: " PUBLIC LANDS", title: 40 },
-{ name: " PUBLIC PRINTING AND DOCUMENTS", title: 41 },
-{ name: " RAILROADS", title: 42 },
-{ name: " SHIPPING", title: 43 },
-{ name: " TELEGRAPHS, TELEPHONES, AND RADIOTELEGRAPHS", title: 45 },
-{ name: " TERRITORIES AND INSULAR POSSESSIONS", title: 46 },
-{ name: " TRANSPORTATION", title: 47 },
-{ name: " WAR AND NATIONAL DEFENSE", title: 48 },
-{ name: " NATIONAL AND COMMERCIAL SPACE PROGRAMS", title: 49 },
+{ name: " JUDICIARY AND JUDICIAL PROCEDURE", title: 28 },
+{ name: " LABOR", title: 29 },
+{ name: " MINERAL LANDS AND MINING", title: 30 },
+{ name: " MONEY AND FINANCE", title: 31 },
+{ name: " NATIONAL GUARD", title: 32 },
+{ name: " NAVIGATION AND NAVIGABLE WATERS", title: 33 },
+{ name: " PATENTS", title: 35 },
+{ name: " PATRIOTIC AND NATIONAL OBSERVANCES, CEREMONIES, ANDORGANIZATIONS", title: 36 },
+{ name: " PAY AND ALLOWANCES OF THE UNIFORMED SERVICES", title: 37 },
+{ name: " VETERANS BENEFITS", title: 38 },
+{ name: " POSTAL SERVICE", title: 39 },
+{ name: " PUBLIC BUILDINGS, PROPERTY, AND WORKS", title: 40 },
+{ name: " PUBLIC CONTRACTS", title: 41 },
+{ name: " THE PUBLIC HEALTH AND WELFARE", title: 42 },
+{ name: " PUBLIC LANDS", title: 43 },
+{ name: " PUBLIC PRINTING AND DOCUMENTS", title: 44 },
+{ name: " RAILROADS", title: 45 },
+{ name: " SHIPPING", title: 46 },
+{ name: " TELEGRAPHS, TELEPHONES, AND RADIOTELEGRAPHS", title: 47 },
+{ name: " TERRITORIES AND INSULAR POSSESSIONS", title: 48 },
+{ name: " TRANSPORTATION", title: 49 },
+{ name: " WAR AND NATIONAL DEFENSE", title: 50 },
+{ name: " NATIONAL AND COMMERCIAL SPACE PROGRAMS", title: 51 },
 
 
 
@@ -142,7 +142,7 @@ app.controller('judicial', function ($scope) {
 
 app.controller('congress', function ($scope) {
 
- 
+
 
 });
 
@@ -286,8 +286,8 @@ app.controller('agencies', function ($scope) {
 
     $scope.agencies = [
         {
-            name:'navy',
-            site:'navy.mil'
+            name: 'navy',
+            site: 'navy.mil'
         },
         {
             name: 'army',
