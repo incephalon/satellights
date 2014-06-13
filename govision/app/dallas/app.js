@@ -10,6 +10,14 @@
 		    templateUrl: 'agencies.html',
 		    controller: 'agencies'
 		})
+		.when('/mayor', {
+		    templateUrl: 'mayor.html',
+		    controller: 'mayor'
+		})
+		.when('/citycouncil', {
+		    templateUrl: 'cityCouncil.html',
+		    controller: 'cityCouncil'
+		})
         .otherwise({
             redirectTo: '/'
         });
@@ -23,63 +31,17 @@ app.controller('myC', function ($scope) {
 app.controller('agencies', function ($scope) {
 
 
-    $scope.departments = [
-        {
-            name: "Agriculture"
-        },
-        {
-            name: "Defense"
-        },
-        {
-            name: "State"
-        },
-        {
-            name: "Education"
-        },
-        {
-            name: "Homeland Security"
-        },
-        {
-            name: "Treasury"
-        },
-        {
-            name: "Interior"
-        },
-        {
-            name: "Labor"
-        },
-        {
-            name: "Health and Human Services"
-        },
-        {
-            name: "Housing and Urban Development"
-        },
-        {
-            name: "Transportation"
-        },
-        {
-            name: "Energy"
-        },
-        {
-            name: "Veterans Affairs"
-        }
-    ];
+
+
+});
+app.controller('cityCouncil', function ($scope) {
 
 
 
 
-    $scope.agencies = [
-        {
-            name: 'navy',
-            site: 'navy.mil'
-        },
-        {
-            name: 'army',
-            site: 'army.mil'
-        },
+});
+app.controller('mayor', function ($scope) {
 
-
-    ];
 
 
 

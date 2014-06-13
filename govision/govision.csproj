@@ -146,6 +146,10 @@
     <Content Include="Content\federal\uscode.css" />
     <Content Include="dallasCounty\agencies.html" />
     <Content Include="dallas\agencies.html" />
+    <Content Include="dallas\charter.html" />
+    <Content Include="dallas\cityCouncil.html" />
+    <Content Include="dallas\dallasCode.html" />
+    <Content Include="dallas\mayor.html" />
     <Content Include="federal\bills.html" />
     <Content Include="federal\committees.html" />
     <Content Include="federal\house.html" />
