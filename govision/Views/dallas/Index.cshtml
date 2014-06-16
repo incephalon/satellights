@@ -65,7 +65,7 @@
         opacity:.95;
 	}
     #abs{
-		width:600px;
+		width:800px;
 		height:75px;
 		position:absolute;
 		z-index:19;
@@ -116,20 +116,16 @@
         <div id="abs">
 
             <a id="overview" class="bLink" href="#">+</a>
-            <a id="constitution" class="bLink" href="#constitution">Constitution</a>
-            <a id="uscode" class="bLink" href="#uscode">U.S. Code</a>
-            <a id="judicial" class="bLink" href="#judicial">Judicial</a>
-            <a id="executive" class="bLink" href="#executive">Executive</a>
-            <a id="congress" class="bLink" href="#congress">Congress</a>
-            <a id="agencies" class="bLink" href="#agencies">Agencies</a>
+            <a id="constitution" class="bLink" href="#charter">Charter</a>
+            <a id="uscode" class="bLink" href="#uscode">Dallas City Code</a>
+            <a id="judicial" class="bLink" href="#mayor">Mayor</a>
+            <a id="executive" class="bLink" href="#cityCouncil">City Council</a>
+            <a id="congress" class="bLink" href="#congress">Departments</a>
+            <a id="agencies" class="bLink" href="#agencies">Municipal Court</a>
+            <a id="agencies" class="bLink" href="#agencies">DISD</a>
+            <a id="agencies" class="bLink" href="#agencies">DART</a>
         </div>
 
-        <div id="sub">
-             <a id="house" class="bLink" href="#senate">Senate</a>
-            <a id="senate" class="bLink" href="#house">House</a>
-            <a id="bills" class="bLink" href="#bills">Bills</a>
-            <a id="committees" class="bLink" href="#committees">Committees</a>
-        </div>
     </div>
 </body>
 
@@ -152,7 +148,7 @@ animate();
 
   
   var w = window.innerWidth;
-  $("#abs").css('left', ((w / 2) - 300));
+  $("#abs").css('left', ((w / 2) - 400));
   $("#sub").css('left', ((w / 2) - 150));
 
 function init() {

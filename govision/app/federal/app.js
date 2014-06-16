@@ -79,7 +79,6 @@ app.controller('uscode', function ($scope) {
 { name: " THE PRESIDENT", title: 3 },
 { name: " FLAG AND SEAL, SEAT OF GOVERNMENT, AND THE STATES", title: 4 },
 { name: " GOVERNMENT ORGANIZATION AND EMPLOYEES", title: 5 },
-{ name: " APPENDIX", title: '5a/usc_sup_05_5' },
 { name: " DOMESTIC SECURITY", title: 6 },
 { name: " AGRICULTURE", title: 7 },
 { name: " ALIENS AND NATIONALITY", title: 8 },
