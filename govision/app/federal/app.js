@@ -172,60 +172,60 @@ app.controller('bills', function ($scope) {
 
 app.controller('committees', function ($scope) {
     $scope.senateCommittees = [
- { name: "Agriculture, Nutrition, and Forestry " },
- { name: "Appropriations " },
- { name: "Armed Services " },
- { name: "Banking, Housing, and Urban Affairs " },
- { name: "Budget " },
- { name: "Commerce, Science, and Transportation " },
- { name: "Energy and Natural Resources " },
- { name: "Environment and Public Works " },
- { name: "Finance " },
- { name: "Foreign Relations " },
- { name: "Health, Education, Labor, and Pensions " },
- { name: "Homeland Security and Governmental Affairs " },
- { name: "Judiciary " },
- { name: "Rules and Administration " },
- { name: "Small Business and Entrepreneurship " },
- { name: "Veterans' Affairs " },
+ { name: "Agriculture, Nutrition, and Forestry ", url: "http://www.agriculture.senate.gov/" },
+ { name: "Appropriations ", url: "http://www.appropriations.senate.gov/" },
+ { name: "Armed Services ", url: "http://www.armed-services.senate.gov/" },
+ { name: "Banking, Housing, and Urban Affairs ", url: "http://www.banking.senate.gov/public" },
+ { name: "Budget ", url: "http://www.budget.senate.gov/" },
+ { name: "Commerce, Science, and Transportation ", url: "http://www.commerce.senate.gov/" },
+ { name: "Energy and Natural Resources ", url: "http://www.energy.senate.gov/" },
+ { name: "Environment and Public Works ", url: "http://www.epw.senate.gov/" },
+ { name: "Finance ", url: "http://www.finance.senate.gov/" },
+ { name: "Foreign Relations ", url: "http://www.foreign.senate.gov/" },
+ { name: "Health, Education, Labor, and Pensions ", url: "http://www.foreign.senate.gov/" },
+ { name: "Homeland Security and Governmental Affairs ", url: "http://www.hsgac.senate.gov/" },
+ { name: "Judiciary ", url: "http://www.judiciary.senate.gov/" },
+ { name: "Rules and Administration ", url: "http://www.rules.senate.gov/" },
+ { name: "Small Business and Entrepreneurship ", url: "http://www.sbc.senate.gov/" },
+ { name: "Veterans' Affairs ", url: "http://www.veterans.senate.gov/" },
 
- { name: "Indian Affairs " },
- { name: "Select Committee on Ethics " },
- { name: "Select Committee on Intelligence " },
- { name: "Special Committee on Aging " }
+ { name: "Indian Affairs ", url: "http://www.indian.senate.gov/" },
+ { name: "Select Committee on Ethics ", url: "http://www.ethics.senate.gov/" },
+ { name: "Select Committee on Intelligence ", url: "http://www.intelligence.senate.gov/" },
+ { name: "Special Committee on Aging ", url: "http://www.aging.senate.gov" }
 
     ];
 
 
 
-    $scope.houseCommittees = [{ name: "Agriculture" },
-{ name: "Appropriations" },
-{ name: "Armed Services" },
-{ name: "Budget" },
-{ name: "Education and the Workforce" },
-{ name: "Energy and Commerce" },
-{ name: "Ethics" },
-{ name: "Financial Services" },
-{ name: "Foreign Affairs" },
-{ name: "Homeland Security" },
-{ name: "House Administration" },
-{ name: "Judiciary" },
-{ name: "Natural Resources" },
-{ name: "Oversight and Government Reform" },
-{ name: "Rules" },
-{ name: "Science, Space, and Technology" },
-{ name: "Small Business" },
-{ name: "Transportation and Infrastructure" },
-{ name: "Veterans’ Affairs" },
-{ name: "Ways and Means" },
-{ name: "Intelligence" }
+    $scope.houseCommittees = [{ name: "Agriculture", url: "http://agriculture.house.gov/" },
+{ name: "Appropriations", url: "http://appropriations.house.gov/" },
+{ name: "Armed Services", url: "http://armedservices.house.gov/" },
+{ name: "Budget", url: "http://budget.house.gov/" },
+{ name: "Education and the Workforce", url: "http://edworkforce.house.gov/" },
+{ name: "Energy and Commerce", url: "http://energycommerce.house.gov/" },
+{ name: "Ethics", url: "http://ethics.house.gov/" },
+{ name: "Financial Services", url: "http://financialservices.house.gov/" },
+{ name: "Foreign Affairs", url: "http://foreignaffairs.house.gov/" },
+{ name: "Homeland Security", url: "http://homeland.house.gov/" },
+{ name: "House Administration", url: "http://cha.house.gov/" },
+{ name: "Judiciary", url: "http://judiciary.house.gov/" },
+{ name: "Natural Resources", url: "http://naturalresources.house.gov/" },
+{ name: "Oversight and Government Reform", url: "http://oversight.house.gov/" },
+{ name: "Rules", url: "http://www.rules.house.gov/" },
+{ name: "Science, Space, and Technology", url: "http://science.house.gov/" },
+{ name: "Small Business", url: "http://smallbusiness.house.gov/" },
+{ name: "Transportation and Infrastructure", url: "http://transportation.house.gov/" },
+{ name: "Veterans’ Affairs", url: "http://veterans.house.gov/" },
+{ name: "Ways and Means", url: "http://waysandmeans.house.gov/" },
+{ name: "Intelligence", url: "http://intelligence.house.gov/" }
     ];
 
     $scope.jointCommittees = [
-        { name: "Joint Economic Committee" },
-{ name: "Joint Committee on the Library" },
-{ name: "Joint Committee on Printing" },
-{ name: "Joint Committee on Taxation" }
+        { name: "Joint Economic Committee", url: "http://www.jec.senate.gov/" },
+{ name: "Joint Committee on the Library", url: "http://cha.house.gov/jointcommittees" },
+{ name: "Joint Committee on Printing", url: "http://cha.house.gov/jointcommittees" },
+{ name: "Joint Committee on Taxation", url: "http://www.jct.gov/" }
 
     ];
 
