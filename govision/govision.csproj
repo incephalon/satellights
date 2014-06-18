@@ -169,6 +169,8 @@
     <Content Include="images\federal\Agencies\US-DeptOfCommerce-Seal.svg.png" />
     <Content Include="images\federal\Agencies\US-DeptOfEnergy-Seal.svg.png" />
     <Content Include="images\federal\Agencies\US-DeptOfJustice-Seal.svg.png" />
+    <Content Include="images\federal\map_113houseBoundaries.svg" />
+    <Content Include="images\federal\map_districtCourts.svg" />
     <Content Include="scratch\app.js" />
     <Content Include="scratch\entities.js" />
     <Content Include="app\federal\app.js" />

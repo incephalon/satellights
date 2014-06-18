@@ -1,17 +1,13 @@
 ﻿@{
     ViewBag.Title = "three";
 }
-
 <script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/three.min.js"></script>
 <script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/CSS3DRenderer.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Alegreya+SC' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js'></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<script src="~/app/federal/app.js"></script>
-
-
-
+<script src="~/app/federal/app.js"></script> 
 <style>
     body {
         margin: 0px;
@@ -32,7 +28,7 @@
     }
 
     #thing {
-        text-align:center;
+        text-align: center;
         background: #fff;
         box-shadow: 0 0 10px black;
         position: absolute;
@@ -56,7 +52,7 @@
         scrollbar-darkshadow-color: ThreeDDarkShadow !important;
         scrollbar-track-color: Scrollbar !important;
         scrollbar-arrow-color: ButtonText !important;
-        overflow-y:scroll;
+        overflow-y: scroll;
     }
 
     .out {
@@ -88,8 +84,9 @@
         width: auto;
         padding-bottom: 10px;
     }
-    .article ul{
-        width:auto;
+
+    .article ul {
+        width: auto;
     }
 
     span {
@@ -180,14 +177,18 @@
         cursor: pointer;
         text-decoration: none;
     }
-</style>
-
-
+</style> 
 <body ng-app="fedApp">
     <div ng-controller="myC">
         <div id="thing" class="out">
-            @*   <div ng-view="" ng-animate="{enter: 'enter', leave: 'leave'}"></div>*@
-            <ng-view ng-animate="$route.current.animation"></ng-view>
+            <div ng-switch on="ViewType">
+                <div ng-switch-when="view">
+                    <ng-view ng-animate="$route.current.animation"></ng-view>
+                </div>
+                <div ng-switch-when="svg">
+                    <div id="svgImage"></div>
+                </div>
+            </div>
         </div>
 
         <div id="abs">
@@ -208,72 +209,47 @@
             <a id="committees" class="bLink" href="#committees">Committees</a>
         </div>
     </div>
-</body>
-
-
-
-
-
+</body> 
 <script>
-
+    app.controller('myC', function ($scope) {
+        $scope.hello = "world"; 
     var camera, scene, renderer, geometry, material, mesh, rendererCSS, object;
-
-    init();
-    animate();
-
+  init();
+    animate(); 
     var wHalf = window.innerWidth / 2;
-    var hHalf = window.innerHeight / 2;
-
+    var hHalf = window.innerHeight / 2; 
     var runningX = 0;
-    var runningY = 0;
-
-
+    var runningY = 0; 
     var w = window.innerWidth;
     $("#abs").css('left', ((w / 2) - 300));
-    $("#sub").css('left', ((w / 2) - 150));
-
-    function init() {
-
-        scene = new THREE.Scene();
-
+    $("#sub").css('left', ((w / 2) - 150)); 
+    function init() { 
+        scene = new THREE.Scene(); 
         camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
         camera.id = "cam";
         camera.position.x = -100;
         camera.position.y = -300;
         camera.position.z = 1000;
-        scene.add(camera);
-
-        //window.addEventListener('mousemove', moveIt, 1);
-
+        scene.add(camera); 
+        //window.addEventListener('mousemove', moveIt, 1); 
         var number = document.createElement('img');
-        number.src = "../../images/myDCClean.png";
-
+        number.src = "../../images/myDCClean.png"; 
         object = new THREE.CSS3DObject(number);
         object.position.x = -300;
         object.position.y = -300;
-        object.position.z = 0;
-
+        object.position.z = 0; 
         scene.add(object);
-        //number.addEventListener('click', clickIt, 1);
-
-
+        //number.addEventListener('click', clickIt, 1); 
         var tester = document.createElement('div');
         tester.id = "tester";
         object2 = new THREE.CSS3DObject(tester);
         object2.position.x = 200;
         object2.position.y = 0;
-        object2.position.z = 10;
-
-        scene.add(object2);
-
-
-
-
+        object2.position.z = 10; 
+        scene.add(object2); 
         renderer = new THREE.CSS3DRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        document.body.appendChild(renderer.domElement);
-
+        renderer.setSize(window.innerWidth, window.innerHeight); 
+        document.body.appendChild(renderer.domElement); 
     }
 
     //
@@ -289,8 +265,6 @@
     function render() {
         renderer.render(scene, camera);
     }
-
-
 
     $("#overview").click(function () {
 
@@ -372,23 +346,44 @@
 
     };
 
-
-    $("#abs > a").not("#overview").click(function (e) {
+    $("#sub > a").not("#overview").click(function (e) {
 
         var id = this.id;
-        console.log(id);
+        //alert(id);
+        if (id === "senate") {
+            $("#svgImage").html("");
+            $scope.ViewType = "svg";
+            loadSVG_HUS();
+        }
+        if (id === "house") {
+            $("#svgImage").html("");
+            $scope.ViewType = "svg";
+            loadSVG_HB();
+        }
+        if (id === "bills") {
 
+            $scope.ViewType = "view";
+        }
+        if (id === "committees") {
+
+            $scope.ViewType = "view";
+        }
+
+    });
+
+    $("#abs > a").not("#overview").click(function (e) { 
+        var id = this.id;
+        //alert(id);
+        console.log(id); 
         TweenMax.to(camera.position, 1, {
             x: positions[id]["x"], y: positions[id]["y"], z: positions[id]["z"], onUpdate: function () {
             }
         });
         $("#thing").removeClass('out');
-        $("#thing").addClass('in');
-
+        $("#thing").addClass('in'); 
         //$("#abs").animate('margin-left', function () {
 
-        //});
-
+        //}); 
         var leftPaneW = .6 * (w / 2);
         $("#abs").animate({
             left: leftPaneW - 300,
@@ -396,12 +391,34 @@
             // Animation complete.
         });
 
+        if (id === "constitution") {
+            
+            $scope.ViewType = "view";
+        }
+        if (id === "uscode") {
 
+            $scope.ViewType = "view";
+        }
+        if (id === "executive") {
 
-        ////$("#thing").html("");
-        ////loadSVG();
-
+            $scope.ViewType = "view";
+        }
         if (id === "congress") {
+
+            $scope.ViewType = "view";
+        }
+        if (id === "agencies") {
+
+            $scope.ViewType = "view";
+        }
+        if (id === "judicial") {
+            $("#svgImage").html("");
+            $scope.ViewType = "svg";
+            loadSVG_DC();
+        } 
+        if (id === "congress") {
+            // $("#thing").html("");
+            //loadSVG();
             //$("#sub").css('visibility','visible');
             $("#sub").animate({
                 left: leftPaneW - 150,
@@ -412,21 +429,17 @@
             });
         }
     });
-
-
-    function loadSVG() {
-
-        d3.xml('../../images/federal/districtCourts.svg', "image/svg+xml", function (xml) {
-            //var doccer = document.getElementById("map");
-
+         
+    function loadSVG_DC() { 
+        d3.xml('../../images/federal/map_districtCourts.svg', "image/svg+xml", function (xml) {
+            //var doccer = document.getElementById("map"); 
             //while (doccer.firstChild) {
             //    doccer.removeChild(doccer.firstChild);
             //}
-            var my = document.getElementById('thing');
+            var my = document.getElementById('svgImage');
 
             my.appendChild(xml.documentElement);
-            //visualize();
-
+            //visualize(); 
             //var h = window.innerHeight - 50;
             //var w = window.innerWidth - 100;
 
@@ -437,7 +450,27 @@
         });
     }
 
+    function loadSVG_HB() { 
+        d3.xml('../../images/federal/map_113houseBoundaries.svg', "image/svg+xml", function (xml) {
+            var my = document.getElementById('svgImage');
+            my.appendChild(xml.documentElement);
+        });
+    }
 
+    function loadSVG_HS() {
+        d3.xml('../../images/federal/HouseSeats.svg', "image/svg+xml", function (xml) {
+            var my = document.getElementById('svgImage');
+            my.appendChild(xml.documentElement);
+        });
+    }
+
+    function loadSVG_HUS() { 
+        d3.xml('../../images/federal/senateSeats2.svg', "image/svg+xml", function (xml) { 
+            var my = document.getElementById('svgImage'); 
+            my.appendChild(xml.documentElement); 
+        });
+    } 
+    });
 </script>
 
 
