@@ -2,19 +2,21 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.0"
-   width="1241.7317"
-   height="720.55206"
-   id="svg2"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="113th_U.S._Congress_House_districts_blank.svg">
+  id="svg2"
+  sodipodi:docname="113th_U.S._Congress_House_districts_blank.svg"
+  inkscape:version="0.48.3.1 r9886"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+ enable-background="new 0 0 1280 649.615" xml:space="preserve"
+   viewBox="0 0 1280 649.615"
+   x="0px" y="0px" 
+   >
   <metadata
      id="metadata442">
     <rdf:RDF>
@@ -37,6 +39,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1366"
      inkscape:window-height="706"
+       inkscape:window-maximized="1" inkscape:guide-bbox="true" 
      id="namedview440"
      showgrid="false"
      inkscape:zoom="0.89874488"
@@ -44,8 +47,9 @@
      inkscape:cy="377.62961"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+   
+     inkscape:current-layer="svg2" ></sodipodi:namedview>
+  
   <defs
      id="defs4" />
   <path

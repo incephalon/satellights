@@ -7,7 +7,7 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js'></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<script src="~/app/federal/app.js"></script> 
+<script src="~/app/federal/app.js"></script>
 <style>
     body {
         margin: 0px;
@@ -28,18 +28,18 @@
     }
 
     #thing {
-        text-align: center;
+        
         background: #fff;
         box-shadow: 0 0 10px black;
         position: absolute;
-        top: 25px;
+        top: 10px;
         z-index: 20;
         width: 40%;
         height: 96%;
         margin: 0px;
         padding: 0px;
         right: 10px;
-        top: 10px;
+        padding-left:10px;
         bottom: 10px;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
@@ -52,7 +52,7 @@
         scrollbar-darkshadow-color: ThreeDDarkShadow !important;
         scrollbar-track-color: Scrollbar !important;
         scrollbar-arrow-color: ButtonText !important;
-        overflow-y: scroll;
+        overflow: auto;
     }
 
     .out {
@@ -78,11 +78,12 @@
     .article .title {
         padding-top: 10px;
         color: black;
-        //margin-left: 150px;
+        margin-left: 150px;
         font-style: italic;
         font-size: 36px;
         width: auto;
         padding-bottom: 10px;
+        padding-left:20px;
     }
 
     .article ul {
@@ -93,14 +94,24 @@
         border-bottom: 2px solid saddlebrown;
     }
 
+    #svgImage {
+        padding-top: 0px !important;
+    }
+
+    @@media screen and (-webkit-min-device-pixel-ratio:0) {
+        #svgImage {
+            margin-top: -95px !important;
+        }
+    }
+
     #thing .article {
         padding-top: 10px;
         width: auto;
-        //min-width: 400px;
-        //height: 96%;
+        min-width: 400px;
+        height:auto;
         font: 13px/22px Helvetica, Arial, sans-serif;
         background: #fff;
-        //overflow: auto;
+        
     }
 
     ul {
@@ -177,15 +188,13 @@
         cursor: pointer;
         text-decoration: none;
     }
-</style> 
+</style>
 <body ng-app="fedApp">
     <div ng-controller="myC">
         <div id="thing" class="out">
-            <div ng-switch on="ViewType">
-                <div ng-switch-when="view">
+           
                     <ng-view ng-animate="$route.current.animation"></ng-view>
-                </div>
-                <div ng-switch-when="svg">
+               
                     <div id="svgImage"></div>
                 </div>
             </div>
@@ -203,273 +212,296 @@
         </div>
 
         <div id="sub">
-            <a id="house" class="bLink" href="#senate">Senate</a>
-            <a id="senate" class="bLink" href="#house">House</a>
+            <a id="senate" class="bLink" href="#senate">Senate</a>
+            <a id="house" class="bLink" href="#house">House</a>
             <a id="bills" class="bLink" href="#bills">Bills</a>
             <a id="committees" class="bLink" href="#committees">Committees</a>
         </div>
     </div>
-</body> 
+</body>
 <script>
     app.controller('myC', function ($scope) {
-        $scope.hello = "world"; 
-    var camera, scene, renderer, geometry, material, mesh, rendererCSS, object;
-  init();
-    animate(); 
-    var wHalf = window.innerWidth / 2;
-    var hHalf = window.innerHeight / 2; 
-    var runningX = 0;
-    var runningY = 0; 
-    var w = window.innerWidth;
-    $("#abs").css('left', ((w / 2) - 300));
-    $("#sub").css('left', ((w / 2) - 150)); 
-    function init() { 
-        scene = new THREE.Scene(); 
-        camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-        camera.id = "cam";
-        camera.position.x = -100;
-        camera.position.y = -300;
-        camera.position.z = 1000;
-        scene.add(camera); 
-        //window.addEventListener('mousemove', moveIt, 1); 
-        var number = document.createElement('img');
-        number.src = "../../images/myDCClean.png"; 
-        object = new THREE.CSS3DObject(number);
-        object.position.x = -300;
-        object.position.y = -300;
-        object.position.z = 0; 
-        scene.add(object);
-        //number.addEventListener('click', clickIt, 1); 
-        var tester = document.createElement('div');
-        tester.id = "tester";
-        object2 = new THREE.CSS3DObject(tester);
-        object2.position.x = 200;
-        object2.position.y = 0;
-        object2.position.z = 10; 
-        scene.add(object2); 
-        renderer = new THREE.CSS3DRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight); 
-        document.body.appendChild(renderer.domElement); 
-    }
-
-    //
-
-
-
-    function animate() {
-        requestAnimationFrame(animate);
-        //object.rotation.x += 0.03;
-        render();
-    }
-
-    function render() {
-        renderer.render(scene, camera);
-    }
-
-    $("#overview").click(function () {
-
-        TweenMax.to(camera.position, 1, {
-            x: -100, y: -300, z: 1000, onUpdate: function () {
-            }
-        });
-
-        $("#thing").removeClass('in');
-        $("#thing").addClass('out');
-
-        var leftPaneW = (w / 2);
-        $("#abs").animate({
-            left: leftPaneW - 300,
-        }, 1000, function () {
-            // Animation complete.
-        });
-    });
-
-    var positions = {
-        "executive": {
-            x: -400,
-            y: -200,
-            z: 800
-        },
-        "congress": {
-            x: 400,
-            y: 0,
-            z: 800
-        },
-
-
-        "senate": {
-            x: 400,
-            y: 0,
-            z: 800
-        },
-
-        "house": {
-            x: 400,
-            y: 0,
-            z: 800
-        },
-
-        "bills": {
-            x: 400,
-            y: 0,
-            z: 800
-        },
-
-        "committees": {
-            x: 400,
-            y: 0,
-            z: 800
-        },
-
-
-        "judicial": {
-            x: 600,
-            y: 0,
-            z: 800
-        },
-        "agencies": {
-            x: 0,
-            y: 200,
-            z: 800
-        },
-        "uscode": {
-            x: 0,
-            y: -200,
-            z: 800
-        },
-        "constitution": {
-            x: -200,
-            y: -200,
-            z: 800
-        },
-
-
-    };
-
-    $("#sub > a").not("#overview").click(function (e) {
-
-        var id = this.id;
-        //alert(id);
-        if (id === "senate") {
-            $("#svgImage").html("");
-            $scope.ViewType = "svg";
-            loadSVG_HUS();
-        }
-        if (id === "house") {
-            $("#svgImage").html("");
-            $scope.ViewType = "svg";
-            loadSVG_HB();
-        }
-        if (id === "bills") {
-
-            $scope.ViewType = "view";
-        }
-        if (id === "committees") {
-
-            $scope.ViewType = "view";
+        $scope.hello = "world";
+        var camera, scene, renderer, geometry, material, mesh, rendererCSS, object;
+        init();
+        animate();
+        var wHalf = window.innerWidth / 2;
+        var hHalf = window.innerHeight / 2;
+        var runningX = 0;
+        var runningY = 0;
+        var w = window.innerWidth;
+        $("#abs").css('left', ((w / 2) - 300));
+        $("#sub").css('left', ((w / 2) - 150));
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.id = "cam";
+            camera.position.x = -100;
+            camera.position.y = -300;
+            camera.position.z = 1000;
+            scene.add(camera);
+            //window.addEventListener('mousemove', moveIt, 1); 
+            var number = document.createElement('img');
+            number.src = "../../images/myDCClean.png";
+            object = new THREE.CSS3DObject(number);
+            object.position.x = -300;
+            object.position.y = -300;
+            object.position.z = 0;
+            scene.add(object);
+            //number.addEventListener('click', clickIt, 1); 
+            var tester = document.createElement('div');
+            tester.id = "tester";
+            object2 = new THREE.CSS3DObject(tester);
+            object2.position.x = 200;
+            object2.position.y = 0;
+            object2.position.z = 10;
+            scene.add(object2);
+            renderer = new THREE.CSS3DRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
         }
 
-    });
+        //
 
-    $("#abs > a").not("#overview").click(function (e) { 
-        var id = this.id;
-        //alert(id);
-        console.log(id); 
-        TweenMax.to(camera.position, 1, {
-            x: positions[id]["x"], y: positions[id]["y"], z: positions[id]["z"], onUpdate: function () {
-            }
-        });
-        $("#thing").removeClass('out');
-        $("#thing").addClass('in'); 
-        //$("#abs").animate('margin-left', function () {
 
-        //}); 
-        var leftPaneW = .6 * (w / 2);
-        $("#abs").animate({
-            left: leftPaneW - 300,
-        }, 1000, function () {
-            // Animation complete.
-        });
 
-        if (id === "constitution") {
-            
-            $scope.ViewType = "view";
+        function animate() {
+            requestAnimationFrame(animate);
+            //object.rotation.x += 0.03;
+            render();
         }
-        if (id === "uscode") {
 
-            $scope.ViewType = "view";
+        function render() {
+            renderer.render(scene, camera);
         }
-        if (id === "executive") {
 
-            $scope.ViewType = "view";
-        }
-        if (id === "congress") {
+        $("#overview").click(function () {
 
-            $scope.ViewType = "view";
-        }
-        if (id === "agencies") {
+            TweenMax.to(camera.position, 1, {
+                x: -100, y: -300, z: 1000, onUpdate: function () {
+                }
+            });
 
-            $scope.ViewType = "view";
-        }
-        if (id === "judicial") {
-            $("#svgImage").html("");
-            $scope.ViewType = "svg";
-            loadSVG_DC();
-        } 
-        if (id === "congress") {
-            // $("#thing").html("");
-            //loadSVG();
-            //$("#sub").css('visibility','visible');
-            $("#sub").animate({
-                left: leftPaneW - 150,
-                opacity: 1,
-                //visibility:'visible',
+            $("#thing").removeClass('in');
+            $("#thing").addClass('out');
+
+            var leftPaneW = (w / 2);
+            $("#abs").animate({
+                left: leftPaneW - 300,
             }, 1000, function () {
                 // Animation complete.
             });
+        });
+
+        var positions = {
+            "executive": {
+                x: -400,
+                y: -200,
+                z: 800
+            },
+            "congress": {
+                x: 400,
+                y: 0,
+                z: 800
+            },
+
+
+            "senate": {
+                x: 400,
+                y: 0,
+                z: 800
+            },
+
+            "house": {
+                x: 400,
+                y: 0,
+                z: 800
+            },
+
+            "bills": {
+                x: 400,
+                y: 0,
+                z: 800
+            },
+
+            "committees": {
+                x: 400,
+                y: 0,
+                z: 800
+            },
+
+
+            "judicial": {
+                x: 600,
+                y: 0,
+                z: 800
+            },
+            "agencies": {
+                x: 0,
+                y: 200,
+                z: 800
+            },
+            "uscode": {
+                x: 0,
+                y: -200,
+                z: 800
+            },
+            "constitution": {
+                x: -200,
+                y: -200,
+                z: 800
+            },
+
+
+        };
+
+        $("#sub > a").not("#overview").click(function (e) {
+
+            var id = this.id;
+            //alert(id);
+            if (id === "senate") {
+                $("#svgImage").html("");
+              
+                loadSVG_HUS();
+            }
+            if (id === "house") {
+                $("#svgImage").html("");
+            
+                loadSVG_HB();
+            }
+            if (id === "bills") {
+                $("#svgImage").html("");
+              
+            }
+            if (id === "committees") {
+
+                $("#svgImage").html("");
+            }
+
+        });
+
+        $("#abs > a").not("#overview").click(function (e) {
+            var id = this.id;
+            //alert(id);
+            console.log(id);
+            TweenMax.to(camera.position, 1, {
+                x: positions[id]["x"], y: positions[id]["y"], z: positions[id]["z"], onUpdate: function () {
+                }
+            });
+            $("#thing").removeClass('out');
+            $("#thing").addClass('in');
+            //$("#abs").animate('margin-left', function () {
+
+            //}); 
+            var leftPaneW = .6 * (w / 2);
+            $("#abs").animate({
+                left: leftPaneW - 300,
+            }, 1000, function () {
+                // Animation complete.
+            });
+
+            if (id === "constitution") {
+                $("#svgImage").html("");
+               
+            }
+            if (id === "uscode") {
+                $("#svgImage").html("");
+            }
+            if (id === "executive") {
+                $("#svgImage").html("");
+            }
+            if (id === "congress") {
+
+                $("#svgImage").html("");
+            }
+            if (id === "agencies") {
+                $("#svgImage").html("");
+           
+            }
+            if (id === "judicial") {
+                $("#svgImage").html("");
+               ;
+                loadSVG_DC();
+            }
+            if (id === "congress") {
+                // $("#thing").html("");
+                //loadSVG();
+                //$("#sub").css('visibility','visible');
+                $("#sub").animate({
+                    left: leftPaneW - 150,
+                    opacity: 1,
+                    //visibility:'visible',
+                }, 1000, function () {
+                    // Animation complete.
+                });
+            }
+        });
+
+        function loadSVG_DC() {
+            d3.xml('../../images/federal/map_districtCourts.svg', "image/svg+xml", function (xml) {
+                //var doccer = document.getElementById("map"); 
+                //while (doccer.firstChild) {
+                //    doccer.removeChild(doccer.firstChild);
+                //}
+                var my = document.getElementById('svgImage');
+
+                my.appendChild(xml.documentElement);
+                //visualize(); 
+                var h = 500;
+                var w = 500;
+
+                var svg = d3.select("svg")
+                //.attr("viewBox", "0 0 600 600")
+                .attr({ width: "90%", height: "90%" })
+                //.attr("width", w)
+                //.attr("height", h);
+            });
         }
-    });
-         
-    function loadSVG_DC() { 
-        d3.xml('../../images/federal/map_districtCourts.svg', "image/svg+xml", function (xml) {
-            //var doccer = document.getElementById("map"); 
-            //while (doccer.firstChild) {
-            //    doccer.removeChild(doccer.firstChild);
-            //}
-            var my = document.getElementById('svgImage');
 
-            my.appendChild(xml.documentElement);
-            //visualize(); 
-            //var h = window.innerHeight - 50;
-            //var w = window.innerWidth - 100;
+        function loadSVG_HB() {
+            d3.xml('../../images/federal/map_113houseBoundaries.svg', "image/svg+xml", function (xml) {
+                var my = document.getElementById('svgImage');
+                my.appendChild(xml.documentElement);
+                var h = 600;
+                var w = 500;
 
-            //var svg = d3.select("svg")
-            //    //.attr("viewBox", "0 0 600 600")
-            //    .attr("width", w)
-            //    .attr("height", h);
-        });
-    }
+                var svg = d3.select("svg")
+                //.attr("viewBox", "0 0 600 600")
+                 .attr({ width: "90%", height: "90%" })
+                //.attr("width", w)
+                //.attr("height", h);
+            });
+        }
 
-    function loadSVG_HB() { 
-        d3.xml('../../images/federal/map_113houseBoundaries.svg', "image/svg+xml", function (xml) {
-            var my = document.getElementById('svgImage');
-            my.appendChild(xml.documentElement);
-        });
-    }
+        function loadSVG_HS() {
+            d3.xml('../../images/federal/HouseSeats.svg', "image/svg+xml", function (xml) {
+                var my = document.getElementById('svgImage');
+                my.appendChild(xml.documentElement);
+                var h = 600;
+                var w = 500;
 
-    function loadSVG_HS() {
-        d3.xml('../../images/federal/HouseSeats.svg', "image/svg+xml", function (xml) {
-            var my = document.getElementById('svgImage');
-            my.appendChild(xml.documentElement);
-        });
-    }
+                var svg = d3.select("svg")
+                //.attr("viewBox", "0 0 600 600")
+                .attr({ width: "90%", height: "90%" })
+                //.attr("width", w)
+                //.attr("height", h);
+            });
+        }
 
-    function loadSVG_HUS() { 
-        d3.xml('../../images/federal/senateSeats2.svg', "image/svg+xml", function (xml) { 
-            var my = document.getElementById('svgImage'); 
-            my.appendChild(xml.documentElement); 
-        });
-    } 
+        function loadSVG_HUS() {
+            d3.xml('../../images/federal/senateSeats2.svg', "image/svg+xml", function (xml) {
+                var my = document.getElementById('svgImage');
+                my.appendChild(xml.documentElement);
+                var h = 600;
+                var w = 500;
+
+                var svg = d3.select("svg")
+                //.attr("viewBox", "0 0 600 600")
+                 .attr({ width: "90%", height: "90%" })
+                //.attr("width", w)
+                //.attr("height", h);
+            });
+        }
     });
 </script>
 
